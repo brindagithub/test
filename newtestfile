@@ -1,0 +1,5 @@
+if
+a+b=2ab
+print output as "function invalid"
+else
+print output as "function valid"

@@ -1,0 +1,534 @@
+
+// 1. Pass tstate,height and width in all Forms.
+
+
+// 2. Add Database Connection Code
+
+
+setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+          setBackground(new java.awt.Color(210, 248, 172));
+          Dimension ScreenSize=Toolkit.getDefaultToolkit().getScreenSize();
+          int ScreenHeight=ScreenSize.height;
+          int ScreenWidth=ScreenSize.width;
+          setTitle("FATAH DOCTOR'S MANAGEMENT SYSTEM");
+          Dimension screenSize=Toolkit.getDefaultToolkit().getScreenSize();
+      		final int screenHeight=screenSize.height;
+      		final int screenWidth=screenSize.width;
+      		if(width==0 && height==0){
+      			setExtendedState(JFrame.MAXIMIZED_BOTH);	
+      		}else{
+      	if((width-12==screenWidth && height==screenHeight-24)|| (width-16==screenWidth && height==screenHeight-24) ){
+      			setExtendedState(JFrame.MAXIMIZED_BOTH);
+      		}
+      		else
+      		{
+      			 setPreferredSize(new Dimension(width,height));	
+      		}
+      		}
+      		
+      		  setMinimumSize(new Dimension(screenWidth/2,screenHeight/2));
+         
+          ImageIcon img = new ImageIcon(ResourceLoader.loadImage("/images/fatah.ico"));
+          setIconImage(img.getImage());
+   	
+      	
+
+
+//3.ToolBar 
+
+
+ toolBar.setPreferredSize(new Dimension(ScreenWidth,30));
+         toolBar.setBorder(new BevelBorder(BevelBorder.RAISED));
+     	
+         ImageIcon imgcheck = new ImageIcon(ResourceLoader.loadImage("/icons/check.png"));
+         JButton btnCheck = new JButton(imgcheck);
+         final JTextField txtSearch=new JTextField();
+         txtSearch.setMaximumSize(new Dimension(140,20));
+         ImageIcon imgBack = new ImageIcon(ResourceLoader.loadImage("/icons/back (1).png"));
+         JButton btnBack = new JButton(imgBack);
+         ImageIcon imglog = new ImageIcon(ResourceLoader.loadImage("/icons/Log-Out.png"));
+         JButton btnLog = new JButton(imglog);
+         ImageIcon imgpgfirst = new ImageIcon(ResourceLoader.loadImage("/icons/go-first-page (1).png"));
+         JButton btnPgfirst = new JButton(imgpgfirst);
+         ImageIcon imgpgprev = new ImageIcon(ResourceLoader.loadImage("/icons/go-previous-page.png"));
+         JButton btnPgprev = new JButton(imgpgprev);
+         ImageIcon imgpgnxt = new ImageIcon(ResourceLoader.loadImage("/icons/go-next-page (1).png"));
+         JButton btnPgnxt = new JButton(imgpgnxt);
+         ImageIcon imgpglast = new ImageIcon(ResourceLoader.loadImage("/icons/go-last-page (1).png"));
+         JButton btnPglast = new JButton(imgpglast);
+         ImageIcon imgsession = new ImageIcon(ResourceLoader.loadImage("/icons/session.png"));
+         JButton btnSession = new JButton(imgsession);
+         ImageIcon imghelp = new ImageIcon(ResourceLoader.loadImage("/icons/Help.png"));
+         JButton btnHelp = new JButton(imghelp);
+         btnCheck.setToolTipText("Enter");
+         btnBack.setToolTipText("Back (F3)");
+         btnLog.setToolTipText("Exit (Shift+F3)");
+         btnPgfirst.setToolTipText("First page (Ctrl+ Page Up)");
+         btnPgprev.setToolTipText("Previous page (Page Up)");
+         btnPgnxt.setToolTipText("Next page (Page Down)");
+         btnPglast.setToolTipText("Last page (Ctrl+Page Down)");
+         btnSession.setToolTipText(" Create New Session");
+         btnHelp.setToolTipText("Help (F1)");
+         toolBar.add(btnCheck);
+         toolBar.add(txtSearch);
+         toolBar.addSeparator();
+         toolBar.add(btnBack);
+         toolBar.add(btnLog);
+         toolBar.addSeparator();
+         toolBar.add(btnPgfirst);
+         toolBar.add(btnPgprev);
+         toolBar.add(btnPgnxt);
+         toolBar.add(btnPglast);
+         toolBar.addSeparator();
+         toolBar.add(btnSession);
+         toolBar.add(btnHelp);
+   		toolBar.setFloatable(false);
+         toolBar.setRollover(true);
+
+// 4. Title 
+
+// 5. BtnToolBar
+
+
+
+
+        pnlBtnToolBar.setPreferredSize(new Dimension(ScreenWidth,30));
+        BtnToolBar.setPreferredSize(new Dimension(ScreenWidth,30));
+        pnlBtnToolBar.setMinimumSize(new Dimension(ScreenWidth/4,30));
+        BtnToolBar.setMinimumSize(new Dimension(ScreenWidth/4,30));
+
+        pnlBtnToolBar.setBackground(new java.awt.Color(233, 233, 146));
+        pnlBtnToolBar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtnToolBar.add(Box.createHorizontalStrut(10));
+        JButton btnNewEntries=new JButton("New Entries");
+        btnNewEntries.setFont(new java.awt.Font("Tahoma",0,12));
+        btnNewEntries.setOpaque(false);
+        btnNewEntries.setEnabled(false);
+        BtnToolBar.add(btnNewEntries);
+        btnNewEntries.setToolTipText("New Entries (F5)");
+        BtnToolBar.add(Box.createHorizontalStrut(8));
+        JButton btnGenerate=new JButton("Generate");
+        btnGenerate.setToolTipText("Generate (Ctrl+F9)");
+        btnGenerate.setFont(new java.awt.Font("Tahoma",0,12));
+        btnGenerate.setOpaque(false);
+  
+        BtnToolBar.add(btnGenerate);
+        ImageIcon imgsave = new ImageIcon(ResourceLoader.loadImage("/icons/save_16x16.png"));
+        JButton btnSave = new JButton(imgsave);
+        btnSave.setOpaque(false);
+        BtnToolBar.add(Box.createHorizontalStrut(8));
+        btnSave.setToolTipText("Save (Ctrl+S)");
+        BtnToolBar.add(btnSave);
+        BtnToolBar.add(Box.createHorizontalStrut(8));
+        ImageIcon imgprint = new ImageIcon(ResourceLoader.loadImage("/icons/document-print.png"));
+        JButton btnPrint = new JButton(imgprint);
+        btnPrint.setOpaque(false);
+        btnPrint.setEnabled(false);
+        btnGenerate.setEnabled(false);
+        btnPrint.setToolTipText("Print (Ctrl+P)");
+        BtnToolBar.add(btnPrint);
+        BtnToolBar.add(Box.createHorizontalStrut(8));
+        ImageIcon imgDelete = new ImageIcon(ResourceLoader.loadImage("/icons/Delete.jpg"));
+        JButton btnDelete = new JButton(imgDelete);
+        btnDelete.setOpaque(false);
+        btnDelete.setToolTipText("Delete (Shift+F2)");
+        BtnToolBar.add(btnDelete);
+        BtnToolBar.add(Box.createHorizontalStrut(8));
+        ImageIcon imgSelect = new ImageIcon(ResourceLoader.loadImage("/icons/select_all1.png"));
+        final JButton btnSelect = new JButton(imgSelect);
+        btnSelect.setOpaque(false);
+        btnSelect.setToolTipText("Select All (F7)");
+        BtnToolBar.add(btnSelect);
+        BtnToolBar.add(Box.createHorizontalStrut(8));
+        ImageIcon imgDeSelect = new ImageIcon(ResourceLoader.loadImage("/icons/deselect all.jpg"));
+        JButton btnDeSelect = new JButton(imgDeSelect);
+        btnDeSelect.setOpaque(false);
+        btnDeSelect.setToolTipText("DeSelect All (Shift+F4)");
+        BtnToolBar.add(btnDeSelect);
+        BtnToolBar.add(Box.createHorizontalStrut(8));
+        ImageIcon imgChange = new ImageIcon(ResourceLoader.loadImage("/icons/change1.png"));
+        JButton btnChange = new JButton(imgChange);
+        btnChange.setOpaque(false);
+        btnChange.setToolTipText("Change (Ctrl+F4) ");
+        BtnToolBar.add(btnChange);
+        ImageIcon imgExcel = new ImageIcon(ResourceLoader.loadImage("/icons/Excel.png"));
+        JButton btnExcel = new JButton(imgExcel);
+        btnExcel.setOpaque(false);
+        btnExcel.setToolTipText("Export to Excel (Ctrl+E)");
+        BtnToolBar.add(btnExcel);
+        btnDelete.setEnabled(false);
+        btnSelect.setEnabled(false);
+        btnSave.setEnabled(false);
+        btnDeSelect.setEnabled(false);
+        btnChange.setEnabled(false);
+        BtnToolBar.setBorder(null);
+        BtnToolBar.setRollover(true);
+        BtnToolBar.setOpaque(false);
+        BtnToolBar.setFloatable(false);
+        
+        javax.swing.GroupLayout pnlBtnToolBarLayout = new javax.swing.GroupLayout(pnlBtnToolBar);
+        pnlBtnToolBar.setLayout(pnlBtnToolBarLayout);
+        pnlBtnToolBarLayout.setHorizontalGroup(
+            pnlBtnToolBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(BtnToolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE,javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        pnlBtnToolBarLayout.setVerticalGroup(
+            pnlBtnToolBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBtnToolBarLayout.createSequentialGroup()
+                .addComponent(BtnToolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+
+
+// 4. Transaction Code 
+
+
+   //<------------------------------------- Transaction Code -------------------------------------->
+
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+            	statusLabel.setText("");
+        			statusLabel.setBackground(new Color(240,240,240));
+            	 String search=txtSearch.getText();
+            	if(!(search.equals("")) && search!=null){
+            	 if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            	new frmtransCode().transcode(search,getWidth(),getHeight());
+            	dispose();
+            	 }
+            	} else
+            	{
+            		setVisible(true);
+            	}
+            }
+        });
+
+        //<-----------------------------------End of Transaction Code--------------------------------------->
+
+
+        //<-------------------------- Check/ Enter  Code---------------------------------------------------->
+        btnCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	statusLabel.setText("");
+        			statusLabel.setBackground(new Color(240,240,240));
+           	 String search=txtSearch.getText();
+         	if(!(search.equals("")) && search!=null){
+         	new frmtransCode().transcode(search,getWidth(),getHeight());
+
+         	 }
+         	else
+         	{
+         		setVisible(true);
+         	}
+            }});
+
+        //<--------------------------------------End of Check/ Enter Code---------------------------------------------------->
+
+
+// 5. ShortCut Keys COde
+
+       //<-------------------------------Code for Button Back-------------------------    
+        KeyStroke BackkeyStroke = KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3,0);
+
+
+
+        Action BackAction=new AbstractAction() {
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        	
+        }
+
+
+
+        };		
+        String keyStrokeAndKeyBack = "F3";
+        btnBack.getInputMap(condition).put(BackkeyStroke, keyStrokeAndKeyBack);
+        btnBack.getActionMap().put(keyStrokeAndKeyBack,BackAction);
+        btnBack.setAction(BackAction);
+        btnBack.setIcon(imgBack);
+        btnBack.setToolTipText("Back (F3)");
+        //<------------------------------------End of Back---------------------------------        
+        //<--------------------------------Code for Exit-----------------------------------------
+
+        KeyStroke ExitkeyStroke = KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3,java.awt.event.KeyEvent.SHIFT_MASK);
+
+
+
+        Action ExitAction=new AbstractAction() {
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        statusLabel.setText("");
+        	statusLabel.setBackground(new Color(240,240,240));
+        JPanel mainFrame=null;
+        int output = JOptionPane.showConfirmDialog(mainFrame
+                , "Do You Want to LogOut ?"
+                ,"Doctor Management "
+                ,JOptionPane.YES_NO_OPTION);
+           if(output == JOptionPane.YES_OPTION){
+        	   
+        	   dispose();
+           }else if(output == JOptionPane.YES_OPTION){
+        	   
+           }
+        	   
+
+
+        }
+        };		
+        String keyStrokeAndKeyExit = "Shift_F3";
+        btnLog.getInputMap(condition).put(ExitkeyStroke, keyStrokeAndKeyExit);
+        btnLog.getActionMap().put(keyStrokeAndKeyExit,ExitAction);
+        btnLog.setAction(ExitAction);
+        btnLog.setIcon(imglog);
+        btnLog.setToolTipText("Exit (Shift+F3)");         
+        //<-------------------------------------------------------------------------------------
+
+        //<--------------------------------Code for Print-----------------------------------------
+
+        KeyStroke PrintkeyStroke = KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P,java.awt.event.KeyEvent.CTRL_MASK);
+
+
+
+        Action PrintAction=new AbstractAction() {
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        	
+        }
+        };		
+        String keyStrokeAndKeyPrint = "Ctrl_P";
+        btnPrint.getInputMap(condition).put(PrintkeyStroke, keyStrokeAndKeyPrint);
+        btnPrint.getActionMap().put(keyStrokeAndKeyPrint,PrintAction);
+        btnPrint.setAction(PrintAction);
+        btnPrint.setIcon(imgprint);
+        btnPrint.setToolTipText("Print (Ctrl+P)");
+        btnPrint.setEnabled(true);
+        //<-------------------------------------------------------------------------------------
+
+
+        //<--------------------------------Code for Generate-----------------------------------------
+
+        KeyStroke GeneratekeyStroke = KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9,java.awt.event.KeyEvent.CTRL_MASK);
+
+
+
+        Action GenerateAction=new AbstractAction() {
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        	
+        }
+        };		
+        String keyStrokeAndKeyGenerate = "Ctrl_F9";
+        btnGenerate.getInputMap(condition).put(GeneratekeyStroke, keyStrokeAndKeyGenerate);
+        btnGenerate.getActionMap().put(keyStrokeAndKeyGenerate,GenerateAction);
+        btnGenerate.setAction(GenerateAction);
+        btnGenerate.setText("Generate");
+        btnGenerate.setFont(new java.awt.Font("Tahoma",0,12));
+        btnGenerate.setToolTipText("Generate (Ctrl+F9)");
+        btnGenerate.setEnabled(true);
+        //<-------------------------------------------------------------------------------------
+
+        //<--------------------------------Code for Page First-----------------------------------------
+
+        KeyStroke pgFirstkeyStroke = KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_PAGE_UP,java.awt.event.KeyEvent.CTRL_MASK);
+
+
+
+        Action pgFirstAction=new AbstractAction() {
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        	
+            statusLabel.setText("");
+        	statusLabel.setBackground(new Color(240,240,240));
+
+        }
+        };		
+        String keyStrokeAndKeypgFirst = "Ctrl_PageUp";
+        btnPgfirst.getInputMap(condition).put(pgFirstkeyStroke, keyStrokeAndKeypgFirst);
+        btnPgfirst.getActionMap().put(keyStrokeAndKeypgFirst,pgFirstAction);
+        btnPgfirst.setAction(pgFirstAction);
+        btnPgfirst.setToolTipText("First page (Ctrl+ Page Up)"); 
+        btnPgfirst.setIcon(imgpgfirst);
+        //<-------------------------------------------------------------------------------------
+        
+        
+
+        //<--------------------------------Code for Excel Export-----------------------------------------
+
+        KeyStroke ExcelExportkeyStroke = KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E,java.awt.event.KeyEvent.CTRL_MASK);
+
+
+
+        Action ExcelExportAction=new AbstractAction() {
+        	@Override
+            public void actionPerformed(ActionEvent e) {
+        		
+        	}
+        };		
+        String keyStrokeAndKeyExcelExport = "Ctrl_E";
+        btnExcel.getInputMap(condition).put(ExcelExportkeyStroke, keyStrokeAndKeyExcelExport);
+        btnExcel.getActionMap().put(keyStrokeAndKeyExcelExport,ExcelExportAction);
+        btnExcel.setAction(ExcelExportAction);
+        btnExcel.setToolTipText("Export to Excel (Ctrl+E)"); 
+        btnExcel.setIcon(imgExcel);
+        //<-------------------------------------------------------------------------------------
+
+        
+        
+               //<--------------------------------Code for Page Previous-----------------------------------------
+
+        KeyStroke pgPrevkeyStroke = KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_PAGE_UP,0);
+
+
+
+        Action pgPrevAction=new AbstractAction() {
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            statusLabel.setText("");
+        	statusLabel.setBackground(new Color(240,240,240));
+
+        }
+        };		
+        String keyStrokeAndKeypgPrev = "Page_Up";
+        btnPgprev.getInputMap(condition).put(pgPrevkeyStroke, keyStrokeAndKeypgPrev);
+        btnPgprev.getActionMap().put(keyStrokeAndKeypgPrev,pgPrevAction);
+        btnPgprev.setAction(pgFirstAction);
+        btnPgprev.setToolTipText("Previous page (Page Up)");     
+        btnPgprev.setIcon(imgpgprev);
+
+        //<-------------------------------------------------------------------------------------                
+        //<--------------------------------Code for Page Next-----------------------------------------
+
+        KeyStroke pgNextkeyStroke = KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_PAGE_DOWN,0);
+
+
+
+        Action pgNextAction=new AbstractAction() {
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            statusLabel.setText("");
+        	statusLabel.setBackground(new Color(240,240,240));
+
+        }
+        };		
+        String keyStrokeAndKeypgNext = "Page_Down";
+        btnPgnxt.getInputMap(condition).put(pgNextkeyStroke, keyStrokeAndKeypgNext);
+        btnPgnxt.getActionMap().put(keyStrokeAndKeypgNext,pgNextAction);
+        btnPgnxt.setAction(pgNextAction);
+        btnPgnxt.setToolTipText("Next page (Page Down)");     
+        btnPgnxt.setIcon(imgpgnxt);
+
+        //<-------------------------------------------------------------------------------------
+        //<--------------------------------Code for Page Last-----------------------------------------
+
+        KeyStroke pgLastkeyStroke = KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_PAGE_DOWN,java.awt.event.KeyEvent.CTRL_MASK);
+
+
+
+        Action pgLastAction=new AbstractAction() {
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            statusLabel.setText("");
+        	statusLabel.setBackground(new Color(240,240,240));
+
+        }
+        };		
+        String keyStrokeAndKeypgLast = "Ctrl_Page_Down";
+        btnPglast.getInputMap(condition).put(pgLastkeyStroke, keyStrokeAndKeypgLast);
+        btnPglast.getActionMap().put(keyStrokeAndKeypgLast,pgLastAction);
+        btnPglast.setAction(pgLastAction);
+        btnPglast.setToolTipText("Last page (Ctrl+ Page Down)");    
+        btnPglast.setIcon(imgpglast);
+        //<-------------------------------------------------------------------------------------
+
+        //<--------------------------------Code for Page Session-----------------------------------------
+        btnSession.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+
+        statusLabel.setText("");
+        	statusLabel.setBackground(new Color(240,240,240));
+        new frmHome(getWidth(),getHeight()).setVisible(true);
+
+
+        }
+        });
+
+        //<-------------------------------------------------------------------------------------------
+
+        //<--------------------------------Code for  Help---------------------------------------------      
+
+        KeyStroke HelpkeyStroke = KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1,0);
+
+
+
+        Action HelpAction=new AbstractAction() {
+
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            statusLabel.setText("");
+        	statusLabel.setBackground(new Color(240,240,240));
+
+        }
+        };		
+        String keyStrokeAndKeyHelp = "F1";
+        btnHelp.getInputMap(condition).put(HelpkeyStroke, keyStrokeAndKeyHelp);
+        btnHelp.getActionMap().put(keyStrokeAndKeyHelp,HelpAction);
+        btnHelp.setAction(HelpAction);
+        btnHelp.setToolTipText("Help (F1)");
+        btnHelp.setIcon(imghelp);
+        //<-------------------------------------------------------------------------------------        
+
+
+// 5. Status Bar
+
+  statusLabel = new  javax.swing.JLabel();	 
+	      	 statusPanel = new javax.swing.JPanel();
+	      
+
+		statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
+                statusPanel.setPreferredSize(new Dimension(screenWidth, 28));
+                statusLabel.setPreferredSize(new Dimension(screenWidth, 28));
+                statusPanel.setMinimumSize(new Dimension(screenWidth/4, 28));
+                statusLabel.setMinimumSize(new Dimension(screenWidth/4, 28));
+                statusPanel.setLayout(new BoxLayout(statusPanel, BoxLayout.X_AXIS));
+                statusLabel.setOpaque(true);
+                statusLabel.setFont( new java.awt.Font("Tahoma",0,12));
+                statusLabel.setHorizontalAlignment(SwingConstants.LEFT);
+             
+             javax.swing.GroupLayout statusPanelLayout = new javax.swing.GroupLayout(statusPanel);
+             statusPanel.setLayout(statusPanelLayout);
+             statusPanelLayout.setHorizontalGroup(
+            		 statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                 .addComponent(statusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE,javax.swing.GroupLayout.PREFERRED_SIZE)
+             );
+             statusPanelLayout.setVerticalGroup(
+            		 statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                 .addGroup(statusPanelLayout.createSequentialGroup()
+                     .addComponent(statusLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addGap(0, 0, Short.MAX_VALUE))
+             );
+
+
+    private javax.swing.JPanel statusPanel;
+    private javax.swing.JLabel statusLabel;
+
+

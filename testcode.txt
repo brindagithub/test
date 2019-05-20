@@ -1,0 +1,25 @@
+
+ 		lblMainTitle.setBackground(new java.awt.Color(246, 204, 80));
+           lblMainTitle.setFont(new java.awt.Font("Times New Roman", 1, 22)); // NOI18N
+           lblMainTitle.setForeground(new java.awt.Color(51, 51, 51));
+           lblMainTitle.setText("DOCTOR'S   MANAGEMENT  SYSTEM");
+           lblMainTitle.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+           lblMainTitle.setOpaque(true);
+           lblMainTitle.setPreferredSize(new Dimension(ScreenWidth,35));
+           pnlMainTitle.setPreferredSize(new Dimension(ScreenWidth,35));
+           lblMainTitle.setMinimumSize(new Dimension(ScreenWidth/4,35));
+           pnlMainTitle.setMinimumSize(new Dimension(ScreenWidth/4,35));
+           javax.swing.GroupLayout pnlMainTitleLayout = new javax.swing.GroupLayout(pnlMainTitle);
+           pnlMainTitle.setLayout(pnlMainTitleLayout);
+           pnlMainTitleLayout.setHorizontalGroup(
+               pnlMainTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addComponent(lblMainTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE,  javax.swing.GroupLayout.PREFERRED_SIZE)
+           );
+           pnlMainTitleLayout.setVerticalGroup(
+               pnlMainTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainTitleLayout.createSequentialGroup()
+                   .addGap(0, 0, 0)
+                   .addComponent(lblMainTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                   .addGap(0, 0, 0))
+           );
+
